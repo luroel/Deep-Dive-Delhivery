@@ -117,42 +117,42 @@ from datetime import datetime
 - Muchas características muestran distribuciones sesgadas hacia la derecha, particularmente las variables relacionadas con el tiempo y la distancia.
 
 #### Correlaciones:
-	Se observaron: 
-  - correlaciones positivas entre el tiempo actual, la distancia actual al destino.
-  - el tiempo OSRM y las características relacionadas con la distancia.
-	- Impacto tiempo actual en relación al cutoff factor. 
+Se observaron: 
+- correlaciones positivas entre el tiempo actual, la distancia actual al destino.
+- el tiempo OSRM y las características relacionadas con la distancia.
+- Impacto tiempo actual en relación al cutoff factor. 
 
 #### Valores Atípicos:
-	- Presencia de valores atípicos en varias características, especialmente en las variables de tiempo y distancia.
-	- Algunos valores extremos pueden representar viajes inusuales o errores en la recopilación de datos.
-  - Valores nulos presentes en las variables source_name y destination_name.
+- Presencia de valores atípicos en varias características, especialmente en las variables de tiempo y distancia.
+- Algunos valores extremos pueden representar viajes inusuales o errores en la recopilación de datos.
+- Valores nulos presentes en las variables source_name y destination_name.
 
 #### Importancia de las características:
-	- Se seleccionaron características con ratio mayor a 1 con 'segment_actual_time' y 'segment_osrm_time' para el modelo de eficiencia.
-	- Las características predictivas clave probablemente incluyen estimaciones de OSRM, distancias y factores derivados.
+- Se seleccionaron características con ratio mayor a 1 con 'segment_actual_time' y 'segment_osrm_time' para el modelo de eficiencia.
+- Las características predictivas clave probablemente incluyen estimaciones de OSRM, distancias y factores derivados.
 
 #### Variables Categóricas:
-	- Se codificaron características categóricas como 'route_type', 'source_name', 'destination_name' y 'od_start_time' principalmente.
+- Se codificaron características categóricas como 'route_type', 'source_name', 'destination_name' y 'od_start_time' principalmente.
 	
-  Estas proporcionan información valiosa sobre las características y patrones de los viajes.
+Estas proporcionan información valiosa sobre las características y patrones de los viajes.
 
 #### Patrones Basados en el Tiempo:
-	- Posibilidad de análisis basado en el tiempo utilizando 'initial_format_date', 'initial_format_time' y otras características temporales.
-	- Patrones en el tráfico o la demanda a lo largo del día/semana.
+- Posibilidad de análisis basado en el tiempo utilizando 'initial_format_date', 'initial_format_time' y otras características temporales.
+- Patrones en el tráfico o la demanda a lo largo del día/semana.
 
 #### Consideraciones para el Modelo:
-	- Dada la presencia de valores atípicos y distribuciones sesgadas, podrían ser adecuados modelos robustos o no paramétricos.
-	- La ingeniería de características, como la creación de términos de interacción o características basadas en el tiempo, podría mejorar el rendimiento del modelo.
+- Dada la presencia de valores atípicos y distribuciones sesgadas, podrían ser adecuados modelos robustos o no paramétricos.
+- La ingeniería de características, como la creación de términos de interacción o características basadas en el tiempo, podría mejorar el rendimiento del modelo.
 
 #### Calidad de los Datos:
-	- Algunos valores negativos en las diferencias de tiempo (por ejemplo, ‘tiempo_real_segmento’) sugieren posibles problemas de calidad de los datos.
-	-	Puede ser necesario investigar y limpiar estas anomalías.
+- Algunos valores negativos en las diferencias de tiempo (por ejemplo, ‘tiempo_real_segmento’) sugieren posibles problemas de calidad de los datos.
+-	Puede ser necesario investigar y limpiar estas anomalías.
 
 #### Acciones escalables:
-	-	Desarrollar modelos separados para diferentes tipos de rutas o períodos de tiempo para capturar patrones específicos.
-	-	Incorporar datos externos (por ejemplo, clima, eventos) para explicar los valores atípicos y mejorar las predicciones.
-	-	Implementar una estrategia robusta de detección y manejo de valores atípicos en el proceso del modelo.
-	-	Considerar el uso de Machine Learning para capturar relaciones complejas en los datos.
+-	Desarrollar modelos separados para diferentes tipos de rutas o períodos de tiempo para capturar patrones específicos.
+-	Incorporar datos externos (por ejemplo, clima, eventos) para explicar los valores atípicos y mejorar las predicciones.
+-	Implementar una estrategia robusta de detección y manejo de valores atípicos en el proceso del modelo.
+-	Considerar el uso de Machine Learning para capturar relaciones complejas en los datos.
 
 ## Acciones tomadas para la limpieza de datos e ingeniería de características
 
@@ -170,12 +170,12 @@ from datetime import datetime
 - Extracción de la cantidad de servicios tipo Carting y FTL.
 - Densidad de servicios Carting en destino.
 - Cantidad de servicios FTL en función del estado de origen y destino.
-- Adquisición de coordenadas por medio de la consulta de una API para identificar patrones entre los estados y los tipos de ruta.
+- Búsqueda de patrones identificando clusters en las rutas con coordenadas específicas adquiridas por medio del consumo de una API.
 
 #### Extracción de características basadas en el tiempo:
 - Se convirtieron las columnas 'od_start_time' y 'od_end_time' al formato datetime.
 - Se extrajeron la hora, el nombre del día y el nombre del mes de las variables anteriores.
-- Medición del cutoff factor en el tiempo actual.
+- Impacto del cutoff factor en el tiempo actual.
 - Distribución de rutas ineficientes por día de la semana.
 
 #### Creación de características de relación:
