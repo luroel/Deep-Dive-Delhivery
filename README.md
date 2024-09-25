@@ -184,13 +184,12 @@ Estas proporcionan información valiosa sobre las características y patrones de
 - 'inefficient_data': 'efficiency' > 'efficiency_threshold'
 
 #### Próximos pasos potenciales:
-	- Manejar la asimetría restante mediante transformaciones (por ejemplo, logarítmica, raíz cuadrada).
-	- Codificar las variables categóricas.
-	- Normalizar o estandarizar las características numéricas.
-	- Selección de características basada en análisis de correlación.
+- Manejar la asimetría restante mediante transformaciones (por ejemplo, logarítmica, raíz cuadrada).
+- Codificar las variables categóricas.
+- Normalizar o estandarizar las características numéricas.
+- Selección de características basada en análisis de correlación.
 
 ## Machine Learning
-
 Elección y manejo del modelo de aprendizaje NO supervisado de Machine Learning <a href="https://d1wqtxts1xzle7.cloudfront.net/89508442/51932-libre.pdf?1660283835=&response-content-disposition=inline%3B+filename%3DK_Means_Algorithm_for_Clustering_of_Lear.pdf&Expires=1727294244&Signature=JpWlwmnGHbrM5t~ylC8GnytWaZ48lQexJO9PSPWLHYjegq7P3HyxUNJkoCAHabfg8EHLEwUwQNKFldBXlI1-TbBuCf~2JTSTqK7H1R9SRp5y1Sbt29ciw2q5hpiO2Z46PIIHYvA~GWKBghs0MvyaktDNaWyKaarCdZfkl7EHhtAiXGNhXb8Tn5jHi-PWQLkj6ct7sAyPpElBJzmIqbQU8xKxIwl8miqVNTkEydnk~RMpmQMctLCwFBZbM8WvJmDwLE~Ui3PXYm0zo503U2NDQS-NWzg-mKSrjJPxYhTs2idubqDMxmKUWv7gfiIG43DyAn-9o8xFtTu70FHCefneFw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">K-Means</a>
 
 ![Texto alternativo](./output/clusters.png)
@@ -205,15 +204,10 @@ Para mejorar aún más el análisis y el modelado, se debería considerar inclui
 Estos datos adicionales pueden contribuir de manera notoria en el aumento de la precisión en las predicciones y la comprensión integral de los factores comunes que afectan los tiempos de entrega de la empresa.
 
 ## Autor
-Luis Rodríguez Elías
-
-
-## Licencia
-
-## Contribuciones
-
-Guía para contribuir al proyecto.
+<strong>Luis Rodríguez Elías</strong>
+<a href="https://www.linkedin.com/in/luis-roel/" target="_blank">
+<img src="![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)" alt="badge"/>
+</a>
 
 ## Licencia
-
 Información sobre la licencia del proyecto.
