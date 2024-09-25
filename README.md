@@ -58,14 +58,22 @@ from datetime import datetime
 ``` 
 
 ## Insights y hallazgos clave
-### 1. Canitidad de servicios por tipo de ruta
+1. ### Canitidad de servicios por tipo de ruta
 
  ![Texto alternativo](./output/op1.png)
 
-### Distribución de la trayectoria del recorrido en función del tiempo y la distancia
+2. ### Frecuencia del tiempo y la distancia del trayecto del servicio
 
 ![Texto alternativo](./output/op2.png)
-  
+
+3. ### Relación entre la Distancia y el tiempo actual en el Recorrido
+
+![Texto alternativo](./output/op3.png)
+
+4. ### Impacto del tipo de ruta en el tiempo actual de duración del recorrido
+
+![Texto alternativo](./output/op4.png)
+
 
 ## Autor
 Luis Rodríguez Elías
