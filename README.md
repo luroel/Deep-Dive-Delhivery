@@ -9,6 +9,7 @@
 - [Acerca del Dataset](#acerca-del-dataset)
 - [Librerías y paquetes](#Librerías-y-paquetes)
 - [Insights y hallazgos clave](#insights-y-hallazgos-clave)
+- [Machine learning](#machine-learning)
 - [Autor](#Autor)
 - [Licencia](#licencia)
 
@@ -108,6 +109,7 @@ from datetime import datetime
 
 ![Texto alternativo](./output/op13.png)
 
+## Machine Learning
 
 ## Autor
 Luis Rodríguez Elías
