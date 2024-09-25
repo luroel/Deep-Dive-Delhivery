@@ -206,7 +206,7 @@ Estos datos adicionales pueden contribuir de manera notoria en el aumento de la 
 ## Autor
 <strong>Luis Rodríguez Elías</strong>
 
-<a href="https://www.linkedin.com/in/luis-roel/">
+<a href="https://www.linkedin.com/in/luis-roel/" target="_blank">
 <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
 
