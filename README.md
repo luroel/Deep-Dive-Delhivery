@@ -206,8 +206,8 @@ Estos datos adicionales pueden contribuir de manera notoria en el aumento de la 
 ## Autor
 <strong>Luis Rodríguez Elías</strong>
 
-	![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
-  <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white">
-
+<a href="https://www.linkedin.com/in/luis-roel/">
+<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white">
+</a>
 ## Licencia
 Información sobre la licencia del proyecto.
