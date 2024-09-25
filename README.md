@@ -1,4 +1,4 @@
-# Delhvery - Análisis de logística y cadena de suministros 
+# Delhivery - Análisis de logística y cadena de suministros 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
 
 ## Índice
@@ -73,6 +73,40 @@ from datetime import datetime
 4. ### Impacto del tipo de ruta en el tiempo actual de duración del recorrido
 
 ![Texto alternativo](./output/op4.png)
+
+5. ### Análisis exploratorio de la ruta Carting
+
+![Texto alternativo](./output/op5.png)
+
+6. ### Análisis exploratorio de la ruta FTL
+
+![Texto alternativo](./output/op6.png)
+
+### Evaluación de la eficiencia en rutas y servicios
+
+7. #### Distribuciones en la evaluación de la eficiencia de las rutas
+
+![Texto alternativo](./output/op8.png)
+
+8. #### Impacto del Cutoff en la duración de los servicios
+
+![Texto alternativo](./output/op9.png)
+
+9. #### Distribución de rutas ineficientes por días de la semana
+
+![Texto alternativo](./output/op10.png)
+
+10. #### Tiempo actual  promedio por estado y diferencia de tiempo por estado en función del actual y el OSRM
+
+![Texto alternativo](./output/op11.png)
+
+11. #### Tiempo actual promedio del servicio por tipo de ruta y diferencia entre el tiempo real y el OSRM por tipo de ruta
+
+![Texto alternativo](./output/op12.png)
+
+12. #### Tiempo actual promedio por fecha y diferencia entre el tiempo actual y el OSRM por fecha
+
+![Texto alternativo](./output/op13.png)
 
 
 ## Autor
