@@ -67,7 +67,7 @@ from datetime import datetime
 
  ![Texto alternativo](./output/op1.png)
 
-2. ### Frecuencia del tiempo y la distancia del trayecto del servicio
+2. ### Distribución del tiempo y las distancias del servicio
 
 ![Texto alternativo](./output/op2.png)
 
@@ -116,32 +116,35 @@ from datetime import datetime
 #### Distribución de los datos
 
 - Muchas características muestran distribuciones sesgadas hacia la derecha, particularmente las variables relacionadas con el tiempo y la distancia.
-- Se aplicaron transformaciones logarítmicas a las características altamente sesgadas para normalizar sus distribuciones.
 
 #### Correlaciones:
 
-	- Se observaron correlaciones positivas fuertes entre el tiempo real, el tiempo de OSRM y las características relacionadas con la distancia.
-	- La variable ‘factor’ muestra correlaciones positivas moderadas con las características relacionadas con el tiempo.
+	Se observaron: 
+  - correlaciones positivas entre el tiempo actual, la distancia actual al destino.
+  - el tiempo OSRM y las características relacionadas con la distancia.
+	- Impacto tiempo actual en relación al cutoff factor. 
 
 #### Valores Atípicos:
 
-	•	Presencia de valores atípicos en varias características, especialmente en las variables de tiempo y distancia.
-	•	Algunos valores extremos pueden representar viajes inusuales o errores en la recopilación de datos.
+	- Presencia de valores atípicos en varias características, especialmente en las variables de tiempo y distancia.
+	- Algunos valores extremos pueden representar viajes inusuales o errores en la recopilación de datos.
+  - Valores nulos presentes en las variables source_name y destination_name.
 
-#### Importancia de las Características:
+#### Importancia de las características:
 
-	- Se seleccionaron características con una correlación > 0.1 con ‘tiempo_real’ para la modelización.
+	- Se seleccionaron características con ratio > 1 con 'segment_actual_time' y 'segment_osrm_time' para el modelo de eficiencia.
 	- Las características predictivas clave probablemente incluyen estimaciones de OSRM, distancias y factores derivados.
 
 #### Variables Categóricas:
 
-	- Se codificaron características categóricas como ‘tipo_de_ruta’, ‘centro_de_origen’ y ‘centro_de_destino’.
-	- Estas pueden proporcionar información valiosa sobre las características y patrones de los viajes.
+	- Se codificaron características categóricas como 'route_type', 'source_name', 'destination_name' y 'od_start_time' principalmente.
+	
+  Estas proporcionan información valiosa sobre las características y patrones de los viajes.
 
 #### Patrones Basados en el Tiempo:
 
-	- Posibilidad de análisis basado en el tiempo utilizando ‘hora_creación_viaje’ y otras características temporales.
-	- Podrían revelar patrones en el tráfico o la demanda a lo largo del día/semana.
+	- Posibilidad de análisis basado en el tiempo utilizando 'initial_format_date', 'initial_format_time' y otras características temporales.
+	- Patrones en el tráfico o la demanda a lo largo del día/semana.
 
 #### Consideraciones para el Modelo:
 
@@ -153,43 +156,68 @@ from datetime import datetime
 	- Algunos valores negativos en las diferencias de tiempo (por ejemplo, ‘tiempo_real_segmento’) sugieren posibles problemas de calidad de los datos.
 	-	Puede ser necesario investigar y limpiar estas anomalías.
 
-#### Perspectivas Accionables:
+#### Acciones escalables:
 
 	-	Desarrollar modelos separados para diferentes tipos de rutas o períodos de tiempo para capturar patrones específicos.
+
 	-	Incorporar datos externos (por ejemplo, clima, eventos) para explicar los valores atípicos y mejorar las predicciones.
-	-	Implementar una estrategia robusta de detección y manejo de valores atípicos en el proceso de modelización.
-	-	Considerar el uso de métodos de ensamble para capturar relaciones complejas en los datos.
+
+	-	Implementar una estrategia robusta de detección y manejo de valores atípicos en el proceso del modelo.
+
+	-	Considerar el uso de Machine Learning para capturar relaciones complejas en los datos.
 
 ## Acciones tomadas para la limpieza de datos e ingeniería de características
 
-Manejo de valores atípicos:
+#### Manejo de valores atípicos:
+- Eliminación de las filas con valores Null ó nulos.
+- El resultado fue un conjunto de datos reducido (df).
+- Se reinicio el índice de los valores.
 
-- Se utilizó el método IQR para eliminar valores atípicos de todas las columnas numéricas.
-- El resultado fue un conjunto de datos reducido (df_clean).
+#### Asimetría y normalización de datos
+- Se calculó y visualizó la asimetría antes y después de la eliminación de valores atípicos.
 
-Corrección de la asimetría:
+- Agrupación del dataframe por valores con un identificador único. 
 
-	•	Se calculó y visualizó la asimetría antes y después de la eliminación de valores atípicos.
+- Definición de columnas numéricas y categóricas en función del primer valor, el promedio y la sumatoria de sus valores.
 
-Extracción de características basadas en el tiempo:
+#### Extracción de características basadas en el tipo de ruta:
+- Extracción de la cantidad de servicios tipo Carting y FTL.
 
-	•	Se convirtieron las columnas ‘trip_creation_time’ y ‘od_start_time’ al formato datetime.
-	•	Se extrajeron la hora, el nombre del día y el nombre del mes de ‘trip_creation_time’.
-	•	Se calculó la diferencia de tiempo entre la creación del viaje y el tiempo de inicio.
+- Densidad de servicios Carting en destino.
 
-Creación de características de relación:
+- Cantidad de servicios FTL en función del estado de origen y destino.
 
-	•	distance_time_ratio: actual_distance_to_destination / actual_time
-	•	osrm_distance_time_ratio: osrm_distance / osrm_time
+- Adquisición de coordenadas por medio de la consulta de una API para identificar patrones entre los estados y los tipos de ruta.
 
-Próximos pasos potenciales:
+#### Extracción de características basadas en el tiempo:
+- Se convirtieron las columnas 'od_start_time' y 'od_end_time' al formato datetime.
 
-	•	Manejar la asimetría restante mediante transformaciones (por ejemplo, logarítmica, raíz cuadrada).
-	•	Codificar las variables categóricas.
-	•	Normalizar o estandarizar las características numéricas.
-	•	Selección de características basada en análisis de correlación.
+- Se extrajeron la hora, el nombre del día y el nombre del mes de las variables anteriores.
+
+- Medición del cutoff factor en el tiempo actual.
+
+- Distribución de rutas ineficientes por día de la semana.
+
+#### Creación de características de relación:
+- 'efficiency_threshold' 
+
+- 'efficiency': 'segment_actual_time'/'segment_osrm_time'
+
+- 'inefficient_data': 'efficiency' > 'efficiency_threshold'
+
+
+#### Próximos pasos potenciales:
+	- Manejar la asimetría restante mediante transformaciones (por ejemplo, logarítmica, raíz cuadrada).
+
+	- Codificar las variables categóricas.
+
+	- Normalizar o estandarizar las características numéricas.
+
+	- Selección de características basada en análisis de correlación.
 
 ## Machine Learning
+
+Elección y manejo del modelo de aprendizaje NO supervisado de Machine Learning, <a href="https://d1wqtxts1xzle7.cloudfront.net/89508442/51932-libre.pdf?1660283835=&response-content-disposition=inline%3B+filename%3DK_Means_Algorithm_for_Clustering_of_Lear.pdf&Expires=1727294244&Signature=JpWlwmnGHbrM5t~ylC8GnytWaZ48lQexJO9PSPWLHYjegq7P3HyxUNJkoCAHabfg8EHLEwUwQNKFldBXlI1-TbBuCf~2JTSTqK7H1R9SRp5y1Sbt29ciw2q5hpiO2Z46PIIHYvA~GWKBghs0MvyaktDNaWyKaarCdZfkl7EHhtAiXGNhXb8Tn5jHi-PWQLkj6ct7sAyPpElBJzmIqbQU8xKxIwl8miqVNTkEydnk~RMpmQMctLCwFBZbM8WvJmDwLE~Ui3PXYm0zo503U2NDQS-NWzg-mKSrjJPxYhTs2idubqDMxmKUWv7gfiIG43DyAn-9o8xFtTu70FHCefneFw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">K-Means</a>
 
 ## Resumen del conjunto de datos
 La calidad de este conjunto de datos puede considerarse buena, con un tamaño muestra de alrededor de 145,000 registros y una amplia gama de características.
