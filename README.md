@@ -2,8 +2,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black) ![mlflow](https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&logo=numpy&logoColor=blue) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
 ## Índice
-
-- [Indice](#indice)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Instalación](#instalación)
 - [Acerca del Dataset](#acerca-del-dataset)
@@ -27,7 +25,7 @@
 ```
 
 ## Acerca del Dataset
-Delhivery es una destacada empresa hindú de cadena de suministros y servicios logísticos, conocida por su amplio alcance y soluciones de entrega eficientes. Delhvery utiliza tecnología sofisticada para ofrecer servicios logísticos integrales, garantizando entregas puntuales y confiables en diversas regiones de la India.
+Delhivery es una destacada empresa hindú de cadena de suministros y servicios logísticos conocida por su amplio alcance y soluciones de entrega eficientes. Delhvery utiliza tecnología sofisticada para ofrecer servicios logísticos integrales, garantizando entregas puntuales y confiables en diversas regiones de la India.
 
 ![Texto alternativo](./img/data-cover2.png)
 
@@ -36,7 +34,7 @@ El análisis de este conjunto de datos ofrece valiosos conocimientos sobre las o
 
 Permite una comprensión integral de cómo se programan y ejecutan los viajes, cómo diferentes factores afectan los tiempos de entrega, y cómo se optimizan las rutas utilizando motores de enrutamiento de código abierto.
 
-Este extenso conjunto de datos es un recurso valioso para mejorar las estrategias logísticas y mejorar el rendimiento de las entregas y tomar decisiones informadas en la gestión de la cadena de suministro.
+Este extenso conjunto de datos es un recurso valioso para mejorar las estrategias logísticas y mejorar el rendimiento de las entregas, tomando decisiones informadas en la gestión de la cadena de suministro.
 
 #### Cómo se puede aportar
 Asistir en el desglose y tratamiento de los datos en pipelines de ingeniería:
@@ -44,7 +42,7 @@ Asistir en el desglose y tratamiento de los datos en pipelines de ingeniería:
 - Interpretación y análisis de datos: Analizar datos sin procesar para apoyar al equipo de ciencia de datos en la construcción de modelos de pronóstico precisos.
 
 #### Perfilado de las columnas
-Este conjunto de datos se centra en las operaciones de Delhivery, proporcionando información detallada sobre los viajes y las entregas. Incluye datos de las fases de prueba y entrenamiento, marcas de tiempo de la creación de los viajes, identificadores únicos para los horarios de las rutas y los viajes, tipos de transporte, detalles de carga completa de camiones, información de recolecciones, detalles de origen y destino, horas de inicio y fin de los viajes, tiempos de entrega, distancias y varios campos desconocidos que podrían proporcionar información adicional tras un análisis más profundo.
+Este conjunto de datos se centra en las operaciones de la empresa Delhivery, proporcionando información detallada sobre los viajes y las entregas. Incluye datos de las fases de prueba y entrenamiento, marcas de tiempo de la creación de los viajes, identificadores únicos para los horarios de las rutas y los viajes, tipos de transporte, detalles de carga completa de camiones, información de recolecciones, detalles de origen y destino, horas de inicio y fin de los viajes, tiempos de entrega, distancias y varios campos desconocidos que podrían proporcionar información adicional tras un análisis más profundo.
 
 ## Librerías y paquetes
 ``` python
@@ -71,11 +69,11 @@ from datetime import datetime
 
 ![Texto alternativo](./output/op2.png)
 
-3. ### Relación entre la Distancia y el tiempo actual en el Recorrido
+3. ### Relación entre la distancia y el tiempo actual en el servicio
 
 ![Texto alternativo](./output/op3.png)
 
-4. ### Impacto del tipo de ruta en el tiempo actual de duración del recorrido
+4. ### Impacto del tipo de ruta en el tiempo actual de duración del servicio
 
 ![Texto alternativo](./output/op4.png)
 
@@ -105,7 +103,7 @@ from datetime import datetime
 
 ![Texto alternativo](./output/op11.png)
 
-11. #### Tiempo actual promedio del servicio por tipo de ruta y diferencia entre el tiempo real y el OSRM por tipo de ruta
+11. #### Tiempo actual promedio del servicio por tipo de ruta y diferencia entre el tiempo actual y el OSRM por tipo de ruta
 
 ![Texto alternativo](./output/op12.png)
 
@@ -118,51 +116,51 @@ from datetime import datetime
 
 #### Correlaciones:
 Se observaron: 
-- correlaciones positivas entre el tiempo actual, la distancia actual al destino.
-- el tiempo OSRM y las características relacionadas con la distancia.
+- Correlaciones positivas entre el tiempo actual, la distancia actual al destino.
+- El tiempo OSRM y las características relacionadas con la distancia.
 - Impacto tiempo actual en relación al cutoff factor. 
 
 #### Valores Atípicos:
 - Presencia de valores atípicos en varias características, especialmente en las variables de tiempo y distancia.
 - Algunos valores extremos pueden representar viajes inusuales o errores en la recopilación de datos.
-- Valores nulos presentes en las variables source_name y destination_name.
+- Valores nulos presentes en las columnas source_name y destination_name.
 
 #### Importancia de las características:
 - Se seleccionaron características con ratio mayor a 1 con 'segment_actual_time' y 'segment_osrm_time' para el modelo de eficiencia.
 - Las características predictivas clave probablemente incluyen estimaciones de OSRM, distancias y factores derivados.
 
-#### Variables Categóricas:
-- Se codificaron características categóricas como 'route_type', 'source_name', 'destination_name' y 'od_start_time' principalmente.
+#### Variables categóricas:
+- Se codificaron columnas categóricas como 'route_type', 'source_name', 'destination_name' y 'od_start_time' principalmente.
 	
 Estas proporcionan información valiosa sobre las características y patrones de los viajes.
 
-#### Patrones Basados en el Tiempo:
-- Posibilidad de análisis basado en el tiempo utilizando 'initial_format_date', 'initial_format_time' y otras características temporales.
-- Patrones en el tráfico o la demanda a lo largo del día/semana.
+#### Patrones basados en el tiempo:
+- Posibilidad de análisis basado en el tiempo, utilizando 'initial_format_date', 'initial_format_time' y otras características temporales.
+- Patrones en el tráfico, ó la demanda a lo largo del día/semana.
 
-#### Consideraciones para el Modelo:
+#### Consideraciones para el modelo:
 - Dada la presencia de valores atípicos y distribuciones sesgadas, podrían ser adecuados modelos robustos o no paramétricos.
 - La ingeniería de características, como la creación de términos de interacción o características basadas en el tiempo, podría mejorar el rendimiento del modelo.
 
-#### Calidad de los Datos:
-- Algunos valores negativos en las diferencias de tiempo (por ejemplo, ‘tiempo_real_segmento’) sugieren posibles problemas de calidad de los datos.
+#### Calidad de los datos:
+- Algunos valores negativos en las diferencias de tiempo (por ejemplo, en columna 'segment_actual_time') sugieren posibles problemas de calidad en los datos.
 -	Puede ser necesario investigar y limpiar estas anomalías.
 
 #### Acciones escalables:
 -	Desarrollar modelos separados para diferentes tipos de rutas o períodos de tiempo para capturar patrones específicos.
 -	Incorporar datos externos (por ejemplo, clima, eventos) para explicar los valores atípicos y mejorar las predicciones.
 -	Implementar una estrategia robusta de detección y manejo de valores atípicos en el proceso del modelo.
--	Considerar el uso de Machine Learning para capturar relaciones complejas en los datos.
+-	Considerar el uso de otros modelos de Machine Learning para capturar relaciones complejas en los datos.
 
 ## Acciones tomadas para la limpieza de datos e ingeniería de características
 
 #### Manejo de valores atípicos:
-- Eliminación de las filas con valores Null ó nulos.
+- Eliminación de las filas con valores indefinidos ó nulos.
 - El resultado fue un conjunto de datos reducido (df).
 - Se reinicio el índice de los valores.
 
 #### Asimetría y normalización de datos
-- Se calculó y visualizó la asimetría antes y después de la eliminación de valores atípicos.
+- Calculó y visualización de la asimetría, antes y después de la eliminación de valores atípicos.
 - Agrupación del dataframe por valores con un identificador único. 
 - Definición de columnas numéricas y categóricas en función del primer valor, el promedio y la sumatoria de sus valores.
 
@@ -173,8 +171,8 @@ Estas proporcionan información valiosa sobre las características y patrones de
 - Búsqueda de patrones identificando clusters en las rutas con coordenadas específicas adquiridas por medio del consumo de una API.
 
 #### Extracción de características basadas en el tiempo:
-- Se convirtieron las columnas 'od_start_time' y 'od_end_time' al formato datetime.
-- Se extrajeron la hora, el nombre del día y el nombre del mes de las variables anteriores.
+- Conversión de las columnas 'od_start_time' y 'od_end_time' al formato datetime.
+- Extracción de la hora, el nombre del día y el nombre del mes de las variables anteriores.
 - Impacto del cutoff factor en el tiempo actual.
 - Distribución de rutas ineficientes por día de la semana.
 
